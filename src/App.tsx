@@ -23,6 +23,29 @@ const people = [
     title: 'Horario Martinez'
   }
 ]
+
+const calendar = [
+  {
+    id: 'calendar-01',
+    title: 'Sesion de seguimiento'
+  },
+  {
+    id: 'calendar-02',
+    title: 'Revision de propuestas'
+  },
+  {
+    id: 'calendar-03',
+    title: 'Evento para donar juguetes'
+  },
+  {
+    id: 'calendar-04',
+    title: 'Junta semanal de equipo'
+  },
+  {
+    id: 'calendar-05',
+    title: 'Revision de pendientes con cliente'
+  }
+]
 function App() {
   return (
     <div className="App">
