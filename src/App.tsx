@@ -41,9 +41,6 @@ function App () {
      <button onClick={handleClick} name='calendar'>Calendar</button>
      <button onClick={handleClick} name='email'>Emails</button>
 
-     <div>
-        {data.map((item) => (<div key={item.id}>{item.title}</div>))}
-     </div>
     </div>
   )
 }
