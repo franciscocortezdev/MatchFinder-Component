@@ -1,12 +1,11 @@
+import React from 'react'
+
 export interface SearchBarProps {
   items:{
     id: string
     title: string
   }[],
-  onItemSelected: {
-    id: string
-    title: string
-  }
+  onItemSelected: string
 }
 
 export interface ResultProps {
@@ -14,10 +13,12 @@ export interface ResultProps {
     id: string
     title: string
   }[],
-  onItemSelected: {
+  onItemSelected: string
+  query: string,
+  onResultCalculated: string
+}
+
+export interface itemsProps {
     id: string
     title: string
-  }
-  query: string,
-  onResultCalculated: number
 }

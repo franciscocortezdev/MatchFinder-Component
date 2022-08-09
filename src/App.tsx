@@ -1,6 +1,7 @@
 import './App.css'
 import React, { useState } from 'react'
 import { people, calendar, emails } from './Data'
+import SearchBar from './Components/searchBar'
 
 function App () {
   const [data, setData] = useState([...people, ...calendar, ...emails])
@@ -40,7 +41,7 @@ function App () {
      <button onClick={handleClick} name='people'>People</button>
      <button onClick={handleClick} name='calendar'>Calendar</button>
      <button onClick={handleClick} name='email'>Emails</button>
-
+    <SearchBar items={data} onItemSelected={'()=>{}'}/>
     </div>
   )
 }
