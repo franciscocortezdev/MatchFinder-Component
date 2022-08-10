@@ -7,6 +7,10 @@ export interface SearchBarProps {
   }[],
   onItemSelected: string
 }
+export interface itemsProps {
+  id: string
+  title: string
+}
 
 export interface ResultProps {
   items:{
@@ -15,10 +19,5 @@ export interface ResultProps {
   }[],
   onItemSelected: string
   query: string,
-  onResultCalculated: string
-}
-
-export interface itemsProps {
-    id: string
-    title: string
+  onResultCalculated: (result: itemsProps[]) => void
 }

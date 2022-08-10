@@ -1,9 +1,13 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import { ResultProps, itemsProps } from '../Types'
 
 export default function Results ({ items, onItemSelected, query, onResultCalculated }: ResultProps) {
   const [result, setResult] = useState<Array<itemsProps>>([])
   const filteredItems = useMemo(() => findMatch(items, query), [items, query])
+
+  useEffect(() => {
+    onResultCalculated(result)
+  }, result)
 
   function findMatch (items: itemsProps[], query:string) {
     const res = items.filter((item) => {
@@ -16,7 +20,7 @@ export default function Results ({ items, onItemSelected, query, onResultCalcula
     <div>
       {
         query !== ''
-          ? filteredItems.map((item) => <div key={item.id}>{item.title}</div>)
+          ? result.map((item) => <div key={item.id}>{item.title}</div>)
           : ''
       }
     </div>
