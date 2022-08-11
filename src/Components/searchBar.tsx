@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { SearchBarProps, itemsProps } from '../Types'
+import { SearchBarProps } from '../Types'
 import Results from './Results'
 
 export default function SearchBar ({ items, onItemSelected }: SearchBarProps) {

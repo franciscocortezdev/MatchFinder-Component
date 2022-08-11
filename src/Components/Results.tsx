@@ -1,14 +1,10 @@
-import React, { useState, useMemo, useEffect } from 'react'
+import React, { useState, useMemo } from 'react'
 import { ResultProps, itemsProps } from '../Types'
 import MarkedItem from './MarkedItem'
 
 export default function Results ({ items, onItemSelected, query, onResultCalculated }: ResultProps) {
   const [result, setResult] = useState<Array<itemsProps>>([])
   const filteredItems = useMemo(() => findMatch(items, query), [items, query])
-
-  // useEffect(() => {
-  //   onResultCalculated(result)
-  // }, result)
 
   function findMatch (items: itemsProps[], query:string) {
     const res = items.filter((item) => {
