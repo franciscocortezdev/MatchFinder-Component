@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import { ResultProps, itemsProps } from '../Types'
+import MarkedItem from './MarkedItem'
 
 export default function Results ({ items, onItemSelected, query, onResultCalculated }: ResultProps) {
   const [result, setResult] = useState<Array<itemsProps>>([])
@@ -16,11 +17,12 @@ export default function Results ({ items, onItemSelected, query, onResultCalcula
     setResult(res)
     return res
   }
+
   return (
     <div>
       {
         query !== ''
-          ? result.map((item) => <div key={item.id}>{item.title}</div>)
+          ? result.map((item) => <MarkedItem key={item.id} item={item} query={query} onClick={onItemSelected} />)
           : ''
       }
     </div>

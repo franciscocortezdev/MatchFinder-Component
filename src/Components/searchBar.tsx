@@ -13,12 +13,14 @@ export default function SearchBar ({ items, onItemSelected }: SearchBarProps) {
   const handleResult = (result:itemsProps[]) => {
     setResult(result)
   }
+  const handleItemClick = (item:itemsProps) => {
 
+  }
   return (
     <div>
       {result && <div>Resultados: {result.length} </div>}
       <input type='text' value={query} onChange={handleInputChange} />
-      <Results items={items} onItemSelected={'()=>{}'} query={query} onResultCalculated={handleResult} />
+      <Results items={items} onItemSelected={handleItemClick} query={query} onResultCalculated={handleResult} />
     </div>
   )
 }

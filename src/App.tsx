@@ -6,7 +6,6 @@ import SearchBar from './Components/searchBar'
 function App () {
   const [data, setData] = useState([...people, ...calendar, ...emails])
   const [selection, setSelection] = useState(null)
-  const [currentOption, setCurrentOption] = useState('all')
 
   const handleClick = (e:React.FormEvent<HTMLButtonElement>) => {
     const { name } = e.currentTarget
@@ -14,21 +13,17 @@ function App () {
     switch (name) {
       case 'all':
         setData([...people, ...calendar, ...emails])
-        setCurrentOption('all')
         break
       case 'people':
         setData([...people])
-        setCurrentOption('people')
         break
 
       case 'calendar':
         setData([...calendar])
-        setCurrentOption('calendar')
         break
 
       case 'email':
         setData([...emails])
-        setCurrentOption('email')
         break
 
       default:
