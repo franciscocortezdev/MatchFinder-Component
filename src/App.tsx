@@ -6,7 +6,7 @@ import { itemsProps } from './Types'
 
 function App () {
   const [data, setData] = useState([...people, ...calendar, ...emails])
-  const [selection, setSelection] = useState(null)
+  const [selection, setSelection] = useState<itemsProps>()
 
   const handleClick = (e:React.FormEvent<HTMLButtonElement>) => {
     const { name } = e.currentTarget
@@ -32,9 +32,16 @@ function App () {
     }
   }
   const handleItemClick = (item:itemsProps) => {
-    console.log(item)
+    const idUpper = item.id.charAt(0).toUpperCase() + item.id.slice(1)
+
+    const id = idUpper.match(/[a-zA-Z]+/g)?.toString()
+
+    if (id) {
+      setSelection({ id, title: item.title })
+    }
   }
   return (
+    <>
     <div>
      <button onClick={handleClick} name='all'>All</button>
      <button onClick={handleClick} name='people'>People</button>
@@ -42,6 +49,10 @@ function App () {
      <button onClick={handleClick} name='email'>Emails</button>
     <SearchBar items={data} onItemSelected={handleItemClick}/>
     </div>
+    <div>
+      {selection && <div>{selection.id} selected:  {selection.title}</div>}
+    </div>
+    </>
   )
 }
 
