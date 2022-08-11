@@ -20,7 +20,7 @@ export interface ResultProps {
   }[]
   onItemSelected: (item: itemsProps) => void
   query: string
-  onResultCalculated: (result: itemsProps[]) => void
+  onResultCalculated: (result: number) => void
 }
 
 export interface MarkedProps {

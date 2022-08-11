@@ -6,15 +6,16 @@ export default function Results ({ items, onItemSelected, query, onResultCalcula
   const [result, setResult] = useState<Array<itemsProps>>([])
   const filteredItems = useMemo(() => findMatch(items, query), [items, query])
 
-  useEffect(() => {
-    onResultCalculated(result)
-  }, result)
+  // useEffect(() => {
+  //   onResultCalculated(result)
+  // }, result)
 
   function findMatch (items: itemsProps[], query:string) {
     const res = items.filter((item) => {
       return item.title.toLowerCase().indexOf(query) >= 0 && query.length > 0
     })
     setResult(res)
+    onResultCalculated(res.length)
     return res
   }
 
