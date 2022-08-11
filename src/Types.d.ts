@@ -1,15 +1,16 @@
 import React from 'react'
 
+export interface itemsProps {
+  id: string
+  title: string
+}
+
 export interface SearchBarProps {
   items:{
     id: string
     title: string
   }[]
-  onItemSelected: string
-}
-export interface itemsProps {
-  id: string
-  title: string
+  onItemSelected: (item: itemsProps) => void
 }
 
 export interface ResultProps {
@@ -17,7 +18,7 @@ export interface ResultProps {
     id: string
     title: string
   }[]
-  onItemSelected: (result: itemsProps) => void
+  onItemSelected: (item: itemsProps) => void
   query: string
   onResultCalculated: (result: itemsProps[]) => void
 }
@@ -28,5 +29,5 @@ export interface MarkedProps {
     title: string
   }
   query: string
-  onClick: (result: itemsProps) => void
+  ItemSelected: (item: itemsProps) => void
 }

@@ -22,7 +22,7 @@ export default function Results ({ items, onItemSelected, query, onResultCalcula
     <div>
       {
         query !== ''
-          ? result.map((item) => <MarkedItem key={item.id} item={item} query={query} onClick={onItemSelected} />)
+          ? result.map((item) => <MarkedItem key={item.id} item={item} query={query} ItemSelected={onItemSelected} />)
           : ''
       }
     </div>

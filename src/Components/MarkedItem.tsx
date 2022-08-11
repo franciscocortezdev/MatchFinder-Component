@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { MarkedProps, itemsProps } from '../Types'
 
-export default function MarkedItem ({ item, query, onClick }: MarkedProps) {
+export default function MarkedItem ({ item, query, ItemSelected }: MarkedProps) {
   const getPosition = (item: itemsProps, query:string) => {
     const index = item.title.toLowerCase().indexOf(query)
     const left = item.title.slice(0, index)
@@ -14,7 +14,7 @@ export default function MarkedItem ({ item, query, onClick }: MarkedProps) {
 
   return (
     <div>
-      <button>
+      <button onClick={() => ItemSelected(item)}>
         {left}
         <span style={{ backgroundColor: 'yellow', fontWeight: 'bold' }}>{center}</span>
         {right}
