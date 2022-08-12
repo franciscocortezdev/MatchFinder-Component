@@ -24,7 +24,8 @@ export default function SearchBar ({ items, onItemSelected }: SearchBarProps) {
   const [result, setResult] = useState(0)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(e.target.value)
+    const value = e.target.value.toLowerCase()
+    setQuery(value)
   }
 
   const handleResult = (result:number) => {
