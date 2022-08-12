@@ -20,7 +20,19 @@ const SelectedItem = styled.div`
   border-bottom: 2px solid #fff;
   display: grid;
   place-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+`
+const BtnOption = styled.button`
+  font-size: 16px;
+  background-color: #144870;
+  color: #fff;
+  border: none;
+  padding: 4px 10px;
+`
+const BtnContainer = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
 `
 
 function App () {
@@ -65,10 +77,12 @@ function App () {
         {selection && <div>{selection.id} selected:  {selection.title}</div>}
       </SelectedItem>
       <div>
-        <button onClick={handleClick} name='all'>All</button>
-        <button onClick={handleClick} name='people'>People</button>
-        <button onClick={handleClick} name='calendar'>Calendar</button>
-        <button onClick={handleClick} name='email'>Emails</button>
+        <BtnContainer>
+          <BtnOption onClick={handleClick} name='all'>All</BtnOption>
+          <BtnOption onClick={handleClick} name='people'>People</BtnOption>
+          <BtnOption onClick={handleClick} name='calendar'>Calendar</BtnOption>
+          <BtnOption onClick={handleClick} name='email'>Emails</BtnOption>
+        </BtnContainer>
         <SearchBar items={data} onItemSelected={handleItemClick}/>
       </div>
 
