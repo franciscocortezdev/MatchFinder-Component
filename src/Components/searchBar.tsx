@@ -16,8 +16,8 @@ export default function SearchBar ({ items, onItemSelected }: SearchBarProps) {
 
   return (
     <div>
-      <div>Search results: {result} </div>
       <input type='text' value={query} onChange={handleInputChange} />
+      <div>Search results: {result} </div>
       <Results items={items} onItemSelected={onItemSelected} query={query} onResultCalculated={handleResult} />
     </div>
   )

@@ -1,8 +1,8 @@
-import './App.css'
 import React, { useState } from 'react'
 import { people, calendar, emails } from './Data'
-import SearchBar from './Components/searchBar'
 import { itemsProps } from './Types'
+import SearchBar from './Components/searchBar'
+import styled from 'styled-components'
 
 function App () {
   const [data, setData] = useState([...people, ...calendar, ...emails])
@@ -43,11 +43,11 @@ function App () {
   return (
     <>
     <div>
-     <button onClick={handleClick} name='all'>All</button>
-     <button onClick={handleClick} name='people'>People</button>
-     <button onClick={handleClick} name='calendar'>Calendar</button>
-     <button onClick={handleClick} name='email'>Emails</button>
-    <SearchBar items={data} onItemSelected={handleItemClick}/>
+      <button onClick={handleClick} name='all'>All</button>
+      <button onClick={handleClick} name='people'>People</button>
+      <button onClick={handleClick} name='calendar'>Calendar</button>
+      <button onClick={handleClick} name='email'>Emails</button>
+      <SearchBar items={data} onItemSelected={handleItemClick}/>
     </div>
     <div>
       {selection && <div>{selection.id} selected:  {selection.title}</div>}
