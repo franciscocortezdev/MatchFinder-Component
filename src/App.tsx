@@ -4,6 +4,25 @@ import { itemsProps } from './Types'
 import SearchBar from './Components/searchBar'
 import styled from 'styled-components'
 
+const AppContainer = styled.div`
+  height: 100vh;
+  background-color: #227ABD;
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const SelectedItem = styled.div`
+  height: 50px;
+  font-size: 20px;
+  color: #fff;
+  border-bottom: 2px solid #fff;
+  display: grid;
+  place-content: center;
+  margin-bottom: 20px;
+`
+
 function App () {
   const [data, setData] = useState([...people, ...calendar, ...emails])
   const [selection, setSelection] = useState<itemsProps>()
@@ -41,18 +60,19 @@ function App () {
     }
   }
   return (
-    <>
-    <div>
-      <button onClick={handleClick} name='all'>All</button>
-      <button onClick={handleClick} name='people'>People</button>
-      <button onClick={handleClick} name='calendar'>Calendar</button>
-      <button onClick={handleClick} name='email'>Emails</button>
-      <SearchBar items={data} onItemSelected={handleItemClick}/>
-    </div>
-    <div>
-      {selection && <div>{selection.id} selected:  {selection.title}</div>}
-    </div>
-    </>
+    <AppContainer>
+      <SelectedItem>
+        {selection && <div>{selection.id} selected:  {selection.title}</div>}
+      </SelectedItem>
+      <div>
+        <button onClick={handleClick} name='all'>All</button>
+        <button onClick={handleClick} name='people'>People</button>
+        <button onClick={handleClick} name='calendar'>Calendar</button>
+        <button onClick={handleClick} name='email'>Emails</button>
+        <SearchBar items={data} onItemSelected={handleItemClick}/>
+      </div>
+
+    </AppContainer>
   )
 }
 
